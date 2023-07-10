@@ -1,7 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:sizer/sizer.dart';
 
 // list of colors that we use in our app
 const kBackgroundColor = Color.fromARGB(255, 250, 248, 250);

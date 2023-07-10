@@ -211,7 +211,7 @@ class _ImageCompressionExampleState extends State<ImageCompressionExamsssple> {
 
   Future<File?> pickImage() async {
     final picker = ImagePicker();
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       File image = File(pickedFile.path);
       String fileName = await getFileName(image);
@@ -241,19 +241,16 @@ class _ImageCompressionExampleState extends State<ImageCompressionExamsssple> {
       // request.fields['property_type_id'] = '1212';
 
       // Compress the image file
-      if (image != null) {
-        String targetPath = '${image.path}_compressed.jpg';
+      String targetPath = '${image.path}_compressed.jpg';
 
-        try {
-          File? compressedFile =
-              await testCompressAndGetFile(image, targetPath);
+      try {
+        File? compressedFile = await testCompressAndGetFile(image, targetPath);
 
-          setState(() {
-            _compressedImage = compressedFile;
-          });
-        } catch (e) {
-          print('Error compressing image: $e');
-        }
+        setState(() {
+          _compressedImage = compressedFile;
+        });
+      } catch (e) {
+        print('Error compressing image: $e');
       }
       // print('image$i =${image.toString()}');
       request.files.add(await http.MultipartFile.fromPath(

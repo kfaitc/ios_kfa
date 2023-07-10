@@ -644,14 +644,14 @@ class _TopUpState extends State<TopUp> {
                             onTap: () {
                               BottomSheet(context, '10');
                             },
-                            child: const Card(
+                            child: Card(
                               color: Colors.white,
                               elevation: 5,
                               child: ListTile(
                                 minVerticalPadding: 5,
                                 title: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text(
                                       "Use ",
                                       style: TextStyle(
@@ -684,7 +684,7 @@ class _TopUpState extends State<TopUp> {
                                     ),
                                   ],
                                 ),
-                                subtitle: Text("10 \$"),
+                                subtitle: const Text("10 \$"),
                               ),
                             ),
                           ),
@@ -692,14 +692,14 @@ class _TopUpState extends State<TopUp> {
                             onTap: () {
                               BottomSheet(context, '30');
                             },
-                            child: const Card(
+                            child: Card(
                               color: Colors.white,
                               elevation: 5,
                               child: ListTile(
                                 minVerticalPadding: 5,
                                 title: Row(
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  children: [
+                                  children: const [
                                     Text(
                                       "Use ",
                                       style: TextStyle(
@@ -732,7 +732,7 @@ class _TopUpState extends State<TopUp> {
                                     ),
                                   ],
                                 ),
-                                subtitle: Text("30 \$"),
+                                subtitle: const Text("30 \$"),
                               ),
                             ),
                           ),

@@ -16,7 +16,8 @@ class Profile_pic extends StatefulWidget {
 }
 
 class _Profile_picState extends State<Profile_pic> {
-  PickedFile? _imagefile;
+  // PickedFile? _imagefile;
+  XFile? _imagefile;
   final ImagePicker _picker = ImagePicker();
   // final ImageCropper _cropper = ImageCropper();
 
@@ -51,7 +52,9 @@ class _Profile_picState extends State<Profile_pic> {
   //   });
   // }
   getImage(ImageSource source) async {
-    _imagefile = await _picker.getImage(source: source);
+    // _imagefile = await _picker.getImage(source: source);
+    _imagefile = await _picker.pickImage(source: source);
+
     if (_imagefile != null) {
       CroppedFile? cropped = await _cropper.cropImage(
         sourcePath: _imagefile!.path,

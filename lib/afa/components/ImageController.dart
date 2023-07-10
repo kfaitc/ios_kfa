@@ -16,7 +16,7 @@ class ImageController extends GetxController {
   final _picker = ImagePicker();
 
   Future<void> pickImage(ImageSource source) async {
-    _pickedFile = await _picker.getImage(source: source);
+    _pickedFile = (await _picker.pickImage(source: source)) as PickedFile?;
     // if (_pickedFile != null) {
     //   setState(() {
     //     _image = File(_pickedFile!.path);

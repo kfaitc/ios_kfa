@@ -101,6 +101,7 @@ dependencies:
   cached_network_image: ^3.2.3
   number_pagination: ^0.0.3+2
   barcode_widget: ^2.0.4
+  flutter_launcher_icons: ^0.13.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -108,6 +109,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo.png"
+  min_sdk_android: 21
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
