@@ -2,9 +2,13 @@
 
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math';
+
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:geocoding/geocoding.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -13,8 +17,6 @@ import 'package:intl/intl.dart';
 import 'package:onclickonedollar/afa/components/contants.dart';
 import 'package:onclickonedollar/afa/screens/AutoVerbal/Add.dart';
 import 'package:onclickonedollar/screen/Account/account.dart';
-// import 'package:onclickonedollar/screen/Home/Customs/Container_Map.dart';
-import 'package:onclickonedollar/screen/Home/Customs/Google_map_3_way/check_map.dart';
 import 'package:onclickonedollar/screen/Home/Customs/Model-responsive.dart';
 import 'package:onclickonedollar/screen/Promotion/membership_real.dart';
 import 'package:onclickonedollar/screen/Promotion/partnerList_real.dart';
@@ -77,7 +79,8 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   late AutoVerbalRequestModel requestModelAuto;
-
+  String? _currentAddress;
+  Position? _currentPosition;
   Uint8List? get_bytes;
   Future<bool> _handleLocationPermission() async {
     bool serviceEnabled;
@@ -418,7 +421,8 @@ class _BodyState extends State<Body> {
                             child: Container(
                               height: 180,
                               width: MediaQuery.of(context).size.width * 1,
-                              margin: EdgeInsets.all(5),
+                              margin:
+                                  EdgeInsets.only(left: 5, right: 5, top: 3),
                               decoration: BoxDecoration(
                                 image: DecorationImage(
                                   image: NetworkImage(
@@ -428,7 +432,9 @@ class _BodyState extends State<Body> {
                                 border: Border.all(
                                   width: 0.2,
                                 ),
-                                borderRadius: BorderRadius.circular(5),
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20)),
                               ),
                             ),
                           ),
@@ -521,7 +527,9 @@ class _BodyState extends State<Body> {
                             opacity: 0.2,
                             image: AssetImage('assets/images/KFA-Logo.png'),
                           ),
-                          borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.only(
+                              bottomLeft: Radius.circular(10),
+                              bottomRight: Radius.circular(10)),
                         ),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -727,7 +735,7 @@ class _BodyState extends State<Body> {
                       InkWell(
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => Add(
+                              builder: (context) => Add_with_property(
                                     id: widget.id,
                                   )));
                         },
@@ -772,7 +780,7 @@ class _BodyState extends State<Body> {
                               ],
                               onTap: () {
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => Add(
+                                    builder: (context) => Add_with_property(
                                           id: widget.id,
                                         )));
                               },
@@ -930,33 +938,6 @@ class _BodyState extends State<Body> {
         ),
       ),
     );
-  }
-
-  CameraPosition? cameraPosition;
-  LatLng latLng = const LatLng(11.5489, 104.9214);
-  var dropdown;
-  final Set<Marker> marker = new Set();
-  int num = 0;
-  Set<Marker> getmarkers() {
-    setState(() {
-      marker.add(Marker(
-        markerId: MarkerId("showLocation.toString()"),
-        position: LatLng(lat!, log!),
-        icon: BitmapDescriptor.defaultMarker,
-        onTap: () {
-          setState(() {
-            Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => Google_map_web(
-                      latitude: lat!,
-                      longitude: log!,
-                    )));
-          });
-        },
-        onDrag: (value) {},
-      ));
-    });
-
-    return marker;
   }
 
   String? options;

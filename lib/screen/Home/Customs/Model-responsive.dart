@@ -11,7 +11,7 @@ import 'package:onclickonedollar/screen/Customs/responsive.dart';
 import 'package:onclickonedollar/screen/Home/Customs/MenuCard.dart';
 
 import 'package:onclickonedollar/screen/Profile/profile.dart';
-import 'package:onclickonedollar/screen/payment/top_up.dart';
+import 'package:onclickonedollar/screen/components/payment/top_up.dart';
 import 'package:onclickonedollar/screen/propertype/Ppopertys/Home_Screen_property.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -160,6 +160,8 @@ class _ScardState extends State<Scard> {
                         MaterialPageRoute(
                           builder: (context) => TopUp(
                             set_email: widget.email,
+                            set_phone: widget.tel,
+                            id_user: widget.id,
                           ),
                         ),
                       );
@@ -195,7 +197,7 @@ class _ScardState extends State<Scard> {
           ),
           SCard(
             svgPic: 'assets/icons/addverbal.svg',
-            title: 'one click 1\$',
+            title: 'Cross Check',
             press: () {
               setState(() {
                 Navigator.push(

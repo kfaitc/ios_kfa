@@ -22,7 +22,7 @@ class LandBuilding extends StatefulWidget {
   // final double asking_price;
   final String address;
   final int opt;
-
+  final double? asking_price;
   final String landId;
   final String ID_khan;
   final String ID_sangkat;
@@ -44,6 +44,7 @@ class LandBuilding extends StatefulWidget {
     required this.check_property,
     required this.list_lb,
     required this.ID_sangkat,
+    this.asking_price,
   });
 
   @override
@@ -51,6 +52,7 @@ class LandBuilding extends StatefulWidget {
 }
 
 class _LandBuildingState extends State<LandBuilding> {
+  final _formKey = GlobalKey<FormState>();
   List list = [];
   var formatter = NumberFormat("##,###,###,##0.00", "en_US");
   int? min;
@@ -301,7 +303,8 @@ class _LandBuildingState extends State<LandBuilding> {
                     SizedBox(
                       height: 5,
                     ),
-                    if (autoverbalTypeValue == '100')
+                    if (autoverbalTypeValue == '100' &&
+                        widget.asking_price == null)
                       Column(
                         children: [
                           Container(
@@ -382,7 +385,11 @@ class _LandBuildingState extends State<LandBuilding> {
                       onPressed: () {
                         if (autoverbalTypeValue == '100') {
                           setState(() {
-                            calLs(area);
+                            if (widget.asking_price == null) {
+                              calLs(area);
+                            } else {
+                              calLs2(area);
+                            }
                           });
                         } else {
                           setState(() {
@@ -674,6 +681,28 @@ class _LandBuildingState extends State<LandBuilding> {
       // print(totalMin);
       // print(totalMax);
     });
+  }
+
+  void calLs2(double area) {
+    setState(() {
+      maxSqm = (widget.asking_price! - (0 * widget.asking_price!)) +
+          (widget.asking_price! -
+              (widget.asking_price! -
+                  (widget.asking_price! *
+                      double.parse(widget.opt_type_id) /
+                      100)));
+
+      minSqm = (widget.asking_price! - (0 * widget.asking_price!)) +
+          (widget.asking_price! -
+              (widget.asking_price! -
+                  (widget.asking_price! *
+                      double.parse(widget.opt_type_id) /
+                      100)));
+      totalMin = (minSqm! * area);
+      totalMax = (maxSqm! * area);
+      addItemToList();
+    });
+    print(maxSqm.toString() + "\t" + minSqm.toString());
   }
 
   Future<void> calElse(double area, String autoverbalTypeValue) async {

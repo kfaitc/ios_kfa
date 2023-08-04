@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:getwidget/getwidget.dart';
 import 'package:onclickonedollar/afa/components/ToFromDate.dart';
 import 'package:onclickonedollar/screen/components/map_all/detail_verbal_by_id.dart';
-import 'package:onclickonedollar/screen/components/map_all/map_in_list_search%20copy.dart';
+import 'package:onclickonedollar/screen/components/map_all/map_in_list_search.dart';
 import '../../components/contants.dart';
 import 'package:http/http.dart' as http;
 

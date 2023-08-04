@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>1018954426754-2ik2qs1sg3271lvndqa4mab3emhacmns.apps.googleusercontent.com</string>
+	<string>347495688195-btvi6j2937i15d7ksgjnoappv1gp4178.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.1018954426754-2ik2qs1sg3271lvndqa4mab3emhacmns</string>
+	<string>com.googleusercontent.apps.347495688195-btvi6j2937i15d7ksgjnoappv1gp4178</string>
 	<key>API_KEY</key>
-	<string>AIzaSyBC8X4ctPS_FIETgLj3sNlxP3nvmp-dg4c</string>
+	<string>AIzaSyCg0J18yVpb866Ib2_Fxsv-9qxPJYsLCRY</string>
 	<key>GCM_SENDER_ID</key>
-	<string>1018954426754</string>
+	<string>347495688195</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>kfa.com.onclickonedollar</string>
+	<string>kfa.com.onclickonedollars</string>
 	<key>PROJECT_ID</key>
-	<string>click1dollar</string>
+	<string>ioskfa</string>
 	<key>STORAGE_BUCKET</key>
-	<string>click1dollar.appspot.com</string>
+	<string>ioskfa.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:1018954426754:ios:8471b6ca605c93152f079b</string>
+	<string>1:347495688195:ios:c7b9136740ad5c5f354636</string>
 </dict>
 </plist>
